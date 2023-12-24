@@ -33,5 +33,9 @@ def get_new_files():
         time.sleep(UPDATE_INTERVAL)
 
 
+# Start the file update thread
 t = Thread(target=get_new_files)
 t.start()
+
+# Start the app
+app.run(port=1234)
