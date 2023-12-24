@@ -6,7 +6,7 @@ from flask import Flask, render_template
 
 
 
-ARCHIVE = "/Desktop/whisper_server/archive/"
+ARCHIVE = "/home/cam/Desktop/whisper_server/archive/"
 UPDATE_INTERVAL = 5 # seconds
 MAX_FILES = 16 # Maximum number of face images to be copied. Should be greater than or equal to the # needed.
 
