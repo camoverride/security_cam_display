@@ -10,7 +10,7 @@ Install the python requirements: `pip install -r requirements.txt`.
 
 ## Run
 
-- `nohup python front_end.pt &`
-- View in Firefox browser: `xdg-open http://127.0.0.1:1234`
-- TODO: open fullscreen
+- `nohup python front_end.py &`
+- Set the display: `export DISPLAY=:0`
+- Show full-screen in forefox: `firefox --kiosk --private-window http://127.0.0.1:123`
 - TODO: this should be run as a standalone file: `file://display.html`` in the browser!
