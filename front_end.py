@@ -26,7 +26,7 @@ def get_new_files():
         files = os.listdir(ARCHIVE)
         files_new_to_old = list(reversed(sorted(files)))
         
-        # Copy and rename files as 1.jpg, 2.jpg etc
+        # Copy and rename files as 1.jpg, 2.jpg etc.
         for index, filename in enumerate(files_new_to_old[:MAX_FILES]):
             os.system(f"cp {ARCHIVE}/{filename} static/archive/{index}.jpg")
 
