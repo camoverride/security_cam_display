@@ -1,0 +1,30 @@
+.html {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.ImageContainer {
+    height: 25%;
+    width: 25%;
+    float: left;
+}
+
+.Image {
+    height: 100%;
+    width: 100%;
+}
+
+.video_feed {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -225;
+    /* this number should be... */
+    margin-left: -225;
+    /* the same as this ... */
+    width: 450px;
+    /* and half of this and the next one */
+    height: 450px;
+}

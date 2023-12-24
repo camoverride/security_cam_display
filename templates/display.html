@@ -1,0 +1,58 @@
+<html>
+
+<head>
+    <script src="//code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="static/assets/css/custom.css" />
+</head>
+
+<body>
+</body>
+
+<script> // This script should follow the <body>
+    // This is how many images will tile the screen.
+    numImages = 16;
+
+    // How often to update the images (ms).
+    updateInterval = 5000;
+
+    // Create a bunch of new html elements with different ID's.
+    window.onload = addElement;
+
+    // This loop creates all the empty html elements.
+    function addElement() {
+        for (let i = 0; i < numImages; i++) {
+
+            // Create a new div element.
+            const newDiv = document.createElement("div");
+            newDiv.className = "ImageContainer";
+
+            // Initialize each div with a dummy image.
+            newDiv.innerHTML += `<img id="myImage${i}", class="Image" src="static/archive/${i}.jpg">`;
+
+            // Add the newly created element and its content to the DOM.
+            const currentDiv = document.getElementById("wrapper");
+            document.body.insertBefore(newDiv, currentDiv);
+        }
+    }
+
+    function updateImages() {
+        console.log("Updating images")
+            for (let i = 1; i < numImages; i++) {
+                // Generate random query string component
+                query = Math.random() * 10000000000000000
+                document.getElementById(`myImage${i}`).src = `static/archive/${i}.jpg?${query}`;
+            }
+        }
+
+    // Update the images every updateInterval
+    $(document).ready(function () {
+        const interval = setInterval(function() {
+            updateImages()
+        }, updateInterval);
+    });
+
+
+</script>
+
+</html>
