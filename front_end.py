@@ -27,7 +27,7 @@ def get_new_files():
         files_new_to_old = list(reversed(sorted(files)))
         
         # Rename files as 1.jpg, 2.jpg etc
-        for index, filename in enumerate(files_new_to_old)[:MAX_FILES]:
+        for index, filename in enumerate(files_new_to_old[:MAX_FILES]):
             os.system(f"mv {ARCHIVE}/{filename} static/archive/{index}.jpg")
 
         time.sleep(UPDATE_INTERVAL)
