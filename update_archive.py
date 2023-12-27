@@ -9,7 +9,7 @@ ARCHIVE_REMOTE_LOCATION = "cam@cam-machine.local:~/security_cam_display/static/a
 PASSWORD = "a"
 
 def update_archive():
-    logging.debug("Updating archive!")
+    logging.warning("Updating archive!")
     try:
         # Get the files
         os.system(f"sshpass -p {PASSWORD} scp -r {ARCHIVE_REMOTE_LOCATION} static/archive")
