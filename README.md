@@ -18,3 +18,7 @@ Install the python requirements: `pip install -r requirements.txt`.
 If there is no local archive, it needs to be updated. Run: `nohup python update_archive.py &`
 
 **TODO**: this should be run as a standalone file: `file://display.html` in the browser!
+
+## About
+
+In `front_end.py` edit `TRACKED_CAMERAS` to add or remove cameras from the display.
