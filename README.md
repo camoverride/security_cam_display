@@ -29,7 +29,8 @@ Start the front-end service using the commands below.
 - Stop it right now: `sudo systemctl stop front_end.service`
 - Get logs: `sudo journalctl -u front_end | tail`
 
-Start the update_archive service using the commands below.
+
+Move the contents of `update_archive.service` to `/etc/systemd/system/update_archive.service`: `sudo vim /etc/systemd/system/update_archive.service`:
 
 - `sudo systemctl daemon-reload`
 - Start it on boot: `sudo systemctl enable update_archive.service` 
