@@ -9,7 +9,18 @@ import logging
 ARCHIVE = "/home/cam/Desktop/whisper_server/archive/"
 UPDATE_INTERVAL = 5 # seconds
 MAX_FILES = 16 # Maximum number of face images to be copied. Should be greater than or equal to the # needed.
-TRACKED_CAMERAS = ["pi1", "pi2", "pi4", "pi5", "cam-machine"]
+TRACKED_CAMERAS = ["pi1", "pi2", "pi4", "pi5", "cam-machine"] # Upstairs setting
+
+
+def get_suffix(filename):
+    if TRACKED_CAMERAS == "all":
+        return True
+
+    suffix = filename.split("_")[-1].split(".")[0]
+    if suffix in TRACKED_CAMERAS:
+        return True
+    else:
+        return False
 
 
 # Set up Flask
@@ -30,8 +41,8 @@ def get_new_files():
             
             # Copy and rename files as 1.jpg, 2.jpg etc.
             for index, filename in enumerate(files_new_to_old[:MAX_FILES]):
-                suffix = filename.split("_")[-1].split(".")[0]
-                if suffix in TRACKED_CAMERAS:
+                tracked_camera = get_suffix(filename)
+                if tracked_camera:
                     os.system(f"cp {ARCHIVE}/{filename} static/archive/{index}.jpg")
 
             time.sleep(UPDATE_INTERVAL)
