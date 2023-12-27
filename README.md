@@ -24,10 +24,10 @@ This will start the program when the computer starts and revive it when it dies.
 Start the service using the commands below.
 
 - `sudo systemctl daemon-reload`
-- Start it on boot: `sudo systemctl enable recordingloop.service` 
-- Start it right now: `sudo systemctl start recordingloop.service`
-- Stop it right now: `sudo systemctl stop recordingloop.service`
-- Get logs: `sudo journalctl -u recordingloop | tail`
+- Start it on boot: `sudo systemctl enable front_end.service` 
+- Start it right now: `sudo systemctl start front_end.service`
+- Stop it right now: `sudo systemctl stop front_end.service`
+- Get logs: `sudo journalctl -u front_end | tail`
 
 
 **TODO**: this should be run as a standalone file: `file://display.html` in the browser!

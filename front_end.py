@@ -7,8 +7,8 @@ from update_archive import update_archive
 
 
 
-ARCHIVE = "/home/cam/Desktop/whisper_server/archive/" # Upstairs setting
-ARCHIVE = "static/archive/" # Downstairs setting
+ARCHIVE = "/home/cam/Desktop/whisper_server/archive" # Upstairs setting
+ARCHIVE = "static/archive" # Downstairs setting
 UPDATE_INTERVAL = 5 # seconds
 MAX_FILES = 16 # Maximum number of face images to be copied. Should be greater than or equal to the # needed.
 TRACKED_CAMERAS = ["pi1", "pi2", "pi4", "pi5", "cam-machine"] # Upstairs setting
