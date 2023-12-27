@@ -3,13 +3,16 @@ import time
 from threading import Thread
 from flask import Flask, render_template
 import logging
+from update_archive import update_archive
 
 
 
-ARCHIVE = "/home/cam/Desktop/whisper_server/archive/"
+ARCHIVE = "/home/cam/Desktop/whisper_server/archive/" # Upstairs setting
+ARCHIVE = "static/archive/" # Downstairs setting
 UPDATE_INTERVAL = 5 # seconds
 MAX_FILES = 16 # Maximum number of face images to be copied. Should be greater than or equal to the # needed.
 TRACKED_CAMERAS = ["pi1", "pi2", "pi4", "pi5", "cam-machine"] # Upstairs setting
+TRACKED_CAMERAS = "all" # Downstairs setting
 
 
 def get_suffix(filename):
@@ -52,8 +55,16 @@ def get_new_files():
 
 
 # Start the file update thread
-t = Thread(target=get_new_files)
-t.start()
+t1 = Thread(target=get_new_files)
+t1.start()
+
+# Start the archive update thread
+t2 = Thread(target=update_archive)
+t2.start()
+
+# Start the browser
+os.system("export DISPLAY=:0")
+os.system("chromium-browser --kiosk http://127.0.0.1:1234")
 
 # Start the app
 app.run(port=1234)

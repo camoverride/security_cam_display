@@ -1,0 +1,17 @@
+; Line 14 (ExecStart) might change depending on tour
+
+[Unit]
+Description=front_end
+After=multi-user.target
+StartLimitIntervalSec=30
+StartLimitBurst=2
+
+[Service]
+Type=simple
+User=pi
+Restart=always
+WorkingDirectory=/home/pi/security_cam_display
+ExecStart=sudo /home/pi/.venv/bin/python /home/pi/security_cam_display/front_end.py
+
+[Install]
+WantedBy=multi-user.target
