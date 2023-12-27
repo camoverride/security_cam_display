@@ -3,7 +3,6 @@ import time
 from threading import Thread
 from flask import Flask, render_template
 import logging
-from update_archive import update_archive
 
 
 
@@ -55,16 +54,8 @@ def get_new_files():
 
 
 # Start the file update thread
-t1 = Thread(target=get_new_files)
-t1.start()
-
-# Start the archive update thread
-t2 = Thread(target=update_archive)
-t2.start()
-
-# Start the browser
-os.system("export DISPLAY=:0")
-os.system("chromium-browser --kiosk http://127.0.0.1:1234")
+t = Thread(target=get_new_files)
+t .start()
 
 # Start the app
 app.run(port=1234)

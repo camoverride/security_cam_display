@@ -18,3 +18,6 @@ def update_archive():
             logging.warn(e)
         
         time.sleep(ARCHIVE_CHECK_INTERVAL)
+
+
+update_archive()

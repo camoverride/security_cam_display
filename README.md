@@ -21,13 +21,21 @@ If there is no local archive, it needs to be updated. Run: `nohup python update_
 Or, start with systemd:
 This will start the program when the computer starts and revive it when it dies. Copy the contents of `front_end.service` to `/etc/systemd/system/front_end.service` (via `sudo vim /etc/systemd/system/front_end.service`).
 
-Start the service using the commands below.
+Start the front-end service using the commands below.
 
 - `sudo systemctl daemon-reload`
 - Start it on boot: `sudo systemctl enable front_end.service` 
 - Start it right now: `sudo systemctl start front_end.service`
 - Stop it right now: `sudo systemctl stop front_end.service`
 - Get logs: `sudo journalctl -u front_end | tail`
+
+Start the update_archive service using the commands below.
+
+- `sudo systemctl daemon-reload`
+- Start it on boot: `sudo systemctl enable update_archive.service` 
+- Start it right now: `sudo systemctl start update_archive.service`
+- Stop it right now: `sudo systemctl stop update_archive.service`
+- Get logs: `sudo journalctl -u update_archive | tail`
 
 
 **TODO**: this should be run as a standalone file: `file://display.html` in the browser!
