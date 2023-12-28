@@ -7,7 +7,7 @@ import logging
 logging.basicConfig(level=logging.DEBUG)
 
 ARCHIVE_CHECK_INTERVAL = 10 # seconds
-ARCHIVE_REMOTE_LOCATION = "cam@cam-machine.local:~/security_cam_display/static/archive"
+ARCHIVE_REMOTE_LOCATION = "cam@cam-machine.local:/home/cam/Desktop/whisper_server/archive"
 ARCHIVE_LOCAL_LOCATION_BASE_PATH = "/home/pi/Desktop"
 PASSWORD = "a"
 
