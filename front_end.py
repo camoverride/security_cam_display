@@ -42,16 +42,20 @@ def get_new_files():
             files_new_to_old = list(reversed(sorted(files)))
             print(files_new_to_old)
 
+            index = 0
             # Copy and rename files as 1.jpg, 2.jpg etc.
-            for index, filename in enumerate(files_new_to_old[:MAX_FILES]):
-                print(filename)
-                tracked_camera = get_suffix(filename)
-                print(tracked_camera)
-                if tracked_camera:
-                    cmd = f"cp {ARCHIVE_LOCAL_LOCATION}/{filename} static/archive/{index}.jpg"
-                    print(cmd)
-                    os.system(cmd)
+            if index < MAX_FILES:
+                for filename in files_new_to_old:
+                    print(filename)
+                    tracked_camera = get_suffix(filename)
+                    print(tracked_camera)
+                    if tracked_camera:
+                        cmd = f"cp {ARCHIVE_LOCAL_LOCATION}/{filename} static/archive/{index}.jpg"
+                        print(cmd)
+                        os.system(cmd)
+                        index += 1
 
+            
             time.sleep(UPDATE_INTERVAL)
 
         except Exception as e:
