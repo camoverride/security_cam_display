@@ -44,8 +44,8 @@ def get_new_files():
 
             index = 0
             # Copy and rename files as 1.jpg, 2.jpg etc.
-            if index < MAX_FILES:
-                for filename in files_new_to_old:
+            for filename in files_new_to_old:
+                if index < MAX_FILES:
                     print(filename)
                     tracked_camera = get_suffix(filename)
                     print(tracked_camera)

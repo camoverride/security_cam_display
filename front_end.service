@@ -8,10 +8,10 @@ StartLimitBurst=2
 
 [Service]
 Type=simple
-User=pi
+User=cam
 Restart=always
-WorkingDirectory=/home/pi/security_cam_display
-ExecStart=sudo /home/pi/security_cam_display/.venv/bin/python /home/pi/security_cam_display/front_end.py
+WorkingDirectory=/home/cam/security_cam_display
+ExecStart=/home/cam/security_cam_display/.venv/bin/python /home/cam/security_cam_display/front_end.py
 
 [Install]
 WantedBy=multi-user.target
