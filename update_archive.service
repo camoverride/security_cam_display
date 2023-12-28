@@ -11,7 +11,7 @@ Type=simple
 User=pi
 Restart=always
 WorkingDirectory=/home/pi/security_cam_display
-ExecStart=sudo /home/pi/security_cam_display/.venv/bin/python /home/pi/security_cam_display/update_archive.py
+ExecStart=/home/pi/security_cam_display/.venv/bin/python /home/pi/security_cam_display/update_archive.py
 
 [Install]
 WantedBy=multi-user.target
