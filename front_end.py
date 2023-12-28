@@ -40,12 +40,17 @@ def get_new_files():
             logging.debug("UPDATING archive contents!")
             files = os.listdir(ARCHIVE_LOCAL_LOCATION)
             files_new_to_old = list(reversed(sorted(files)))
-            
+            print(files_new_to_old)
+
             # Copy and rename files as 1.jpg, 2.jpg etc.
             for index, filename in enumerate(files_new_to_old[:MAX_FILES]):
+                print(filename)
                 tracked_camera = get_suffix(filename)
+                print(tracked_camera)
                 if tracked_camera:
-                    os.system(f"cp {ARCHIVE_LOCAL_LOCATION}/{filename} static/archive/{index}.jpg")
+                    cmd = f"cp {ARCHIVE_LOCAL_LOCATION}/{filename} static/archive/{index}.jpg"
+                    print(cmd)
+                    os.system(cmd)
 
             time.sleep(UPDATE_INTERVAL)
 
