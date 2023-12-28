@@ -6,8 +6,8 @@ import logging
 
 
 
-ARCHIVE = "/home/cam/Desktop/whisper_server/archive" # Upstairs setting
-ARCHIVE = "static/archive" # Downstairs setting
+ARCHIVE_LOCAL_LOCATION = "/home/cam/Desktop/whisper_server/archive" # Upstairs setting
+ARCHIVE_LOCAL_LOCATION = "/home/pi/Desktop/archive" # Downstairs setting
 UPDATE_INTERVAL = 5 # seconds
 MAX_FILES = 16 # Maximum number of face images to be copied. Should be greater than or equal to the # needed.
 TRACKED_CAMERAS = ["pi1", "pi2", "pi4", "pi5", "cam-machine"] # Upstairs setting
@@ -38,14 +38,14 @@ def get_new_files():
     while True:
         try:
             logging.debug("UPDATING archive contents!")
-            files = os.listdir(ARCHIVE)
+            files = os.listdir(ARCHIVE_LOCAL_LOCATION)
             files_new_to_old = list(reversed(sorted(files)))
             
             # Copy and rename files as 1.jpg, 2.jpg etc.
             for index, filename in enumerate(files_new_to_old[:MAX_FILES]):
                 tracked_camera = get_suffix(filename)
                 if tracked_camera:
-                    os.system(f"cp {ARCHIVE}/{filename} static/archive/{index}.jpg")
+                    os.system(f"cp {ARCHIVE_LOCAL_LOCATION}/{filename} static/archive/{index}.jpg")
 
             time.sleep(UPDATE_INTERVAL)
 

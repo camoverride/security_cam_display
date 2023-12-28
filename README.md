@@ -40,6 +40,7 @@ Move the contents of `update_archive.service` to `/etc/systemd/system/update_arc
 
 
 **TODO**: this should be run as a standalone file: `file://display.html` in the browser!
+**TODO**: browser should open on startup! `/usr/bin/chromium-browser --kiosk http://127.0.0.1:1234`
 
 ## About
 
