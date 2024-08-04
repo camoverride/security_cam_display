@@ -12,8 +12,9 @@ Install the python requirements: `pip install -r requirements.txt`.
 
 Start manually:
 - `nohup python front_end.py &`
+- `nohup python update_archive.py &`
 - Set the display: `export DISPLAY=:0`
-- Show full-screen in Firefox: `firefox --kiosk --private-window http://127.0.0.1:123`
+- Show full-screen in Firefox: `firefox --kiosk --private-window http://127.0.0.1:1234`
 - Or Chromium: `chromium-browser --kiosk http://127.0.0.1:1234`
 
 If there is no local archive, it needs to be updated. Run: `nohup python update_archive.py &`

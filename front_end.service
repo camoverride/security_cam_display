@@ -11,7 +11,7 @@ Type=simple
 User=cam
 Restart=always
 WorkingDirectory=/home/cam/security_cam_display
-ExecStart=/home/cam/security_cam_display/.venv/bin/python /home/cam/security_cam_display/front_end.py
+ExecStart=sudo /home/cam/security_cam_display/.venv/bin/python /home/cam/security_cam_display/front_end.py
 
 [Install]
 WantedBy=multi-user.target
